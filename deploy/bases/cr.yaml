@@ -1,0 +1,17 @@
+---
+apiVersion: syndesis.io/v1beta1
+kind: Syndesis
+metadata:
+  name: app
+spec:
+  #
+  # Route hostname is required for the accessing ingress
+  #
+  routeHostname: ${external_host}
+  components:
+    oauth:
+      #
+      # Secrets are required for oauth authorisation and authentication
+      #
+      credentialsSecret: syndesis-oauth-credentials
+      cryptoCommsSecret: syndesis-oauth-comms
