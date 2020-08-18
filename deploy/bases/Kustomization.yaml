@@ -1,0 +1,20 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  app: syndesis
+  syndesis.io/app: syndesis
+  syndesis.io/type: infrastructure
+  app.kubernetes.io/name: syndesis
+  app.kubernetes.io/part-of: syndesis
+  app.kubernetes.io/version: 1.11.0-20200813
+
+resources:
+  - ../../install/operator/deploy
+  - ./namespace.yaml
+  - ./pvc.yaml
+  - ./rbac.yaml
+  - ./secrets.yaml
+  - ./cr.yaml
+
