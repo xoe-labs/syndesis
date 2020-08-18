@@ -5,13 +5,15 @@ metadata:
 build:
   artifacts:
   - image: syndesis/syndesis-operator
-    context: install/operator/build
-  - image: syndesis/syndesis-meta
-    context: install/operator/build
-  - image: syndesis/syndesis-server
-    context: install/operator/build
-  - image: syndesis/syndesis-ui
-    context: install/operator/build
+    context: install/operator
+    docker:
+      dockerfile: build/Dockerfile
+  # - image: syndesis/syndesis-meta
+  #   context: install/operator/build
+  # - image: syndesis/syndesis-server
+  #   context: install/operator/build
+  # - image: syndesis/syndesis-ui
+  #   context: install/operator/build
 deploy:
   kustomize:
     paths:
